@@ -3,21 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initialpscale=1.0" />
-    <title>IceCream</title>
+    <link rel="icon" href="images/IceCream.jpg" />
+    <title>Ice Cream</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main>
       <h1>Ice Cream Order Form</h1>
+
       <form id="ice-cream-form" action="#" method="get">
         <fieldset>
           <legend>Personal Information</legend>
           <!-- Name -->
           <label for="name">Name:</label>
+          <br />
           <input type="text" id="name" name="name" />
           <br />
           <!-- Email -->
           <label for="email">Email:</label>
+          <br />
           <input type="text" id="email" name="email" />
         </fieldset>
 
@@ -33,66 +37,56 @@
             <option value="strawberry">Strawberry</option>
             <option value="mint">Mint</option>
           </select>
-          <br />
           <!-- Cone -->
-          <label for="cone">
-            Choose your cone:
-            <br />
-            <label for="waffle">
-              <input
-                type="radio"
-                id="waffle"
-                value="waffle"
-                name="cone"
-              />Waffle Cone
-            </label>
-            <label for="sugar">
-              <input type="radio" id="sugar" value="sugar" name="cone" />
-              Sugar Cone
-            </label>
-            <label for="cup">
-              <input type="radio" id="cup" value="cup" name="cone" />
-              Cup
-            </label>
+          <p>Choose your cone:</p>
+          <label for="waffle">
+            <input type="radio" id="waffle" value="waffle" name="cone" />Waffle
+            Cone
+          </label>
+          <label for="sugar">
+            <input type="radio" id="sugar" value="sugar" name="cone" />
+            Sugar Cone
+          </label>
+          <label for="cup">
+            <input type="radio" id="cup" value="cup" name="cone" />
+            Cup
+          </label>
+          <br /><br />
+          <!-- Toppings -->
+          <p>Toppings:</p>
+          <label for="sprinkles">
+            <input
+              type="checkbox"
+              id="sprinkles"
+              name="toppings[]"
+              value="sprinkles"
+            />Sprinkles
+          </label>
+          <label for="nuts">
+            <input
+              type="checkbox"
+              id="nuts"
+              name="toppings[]"
+              value="nuts"
+            />Nuts
+          </label>
+          <label for="cherry">
+            <input
+              type="checkbox"
+              id="cherry"
+              name="toppings[]"
+              value="cherry"
+            />Cherry
+          </label>
+          <label for="whipped-cream">
+            <input
+              type="checkbox"
+              id="whipped-cream"
+              name="toppings[]"
+              value="whipped-cream"
+            />Whipped Cream
           </label>
           <br />
-          <!-- Toppings -->
-          <label>
-            Toppings:
-            <br />
-            <label for="sprinkles">
-              <input
-                type="checkbox"
-                id="sprinkles"
-                name="toppings[]"
-                value="sprinkles"
-              />Sprinkles
-            </label>
-            <label for="nuts">
-              <input
-                type="checkbox"
-                id="nuts"
-                name="toppings[]"
-                value="nuts"
-              />Nuts
-            </label>
-            <label for="cherry">
-              <input
-                type="checkbox"
-                id="cherry"
-                name="toppings[]"
-                value="cherry"
-              />Cherry
-            </label>
-            <label for="whipped-cream">
-              <input
-                type="checkbox"
-                id="whipped-cream"
-                name="toppings[]"
-                value="whipped-cream"
-              />Whipped Cream
-            </label>
-          </label>
 
           <!-- Comment field -->
           <br />
@@ -102,7 +96,7 @@
         </fieldset>
 
         <!-- Submit button -->
-        <button type="submit" id="order-button">Place Order</button>
+        <button type="submit" id="order-button">Submit Order</button>
       </form>
     </main>
   </body>
