@@ -1,1 +1,3 @@
-alert("Hello, ice cream!");
+document.getElementById("ice-cream-form").onsubmit=()=>{
+    
+}
