@@ -20,5 +20,8 @@
   "homepage": "https://github.com/SamuelM007/ice-cream#readme",
   "dependencies": {
     "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
   }
 }
