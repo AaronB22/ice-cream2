@@ -7,9 +7,13 @@ const app = express();
 // Define the port number where our server will listen
 const PORT = 3000;
 
+app.use(express.static('public'));
+
+
+
 // Define a default "route" ('/')
 app.get("/", (req, res) => {
-  res.send("Welcome to My Ice Cream Shop!");
+  res.sendFile(`${import.meta.dirname}/views/home.html`);
 });
 
 // Start the server and listen on the specified port
