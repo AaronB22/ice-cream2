@@ -6,6 +6,7 @@
     <link rel="icon" href="images/IceCream.jpg" />
     <title>Ice Cream</title>
     <link rel="stylesheet" href="styles/styles.css" />
+    <script src="js/ice-cream.js" defer></script>
    
   </head>
   <body>
@@ -18,14 +19,18 @@
           <!-- Name -->
           <label for="name"
             >Name:<span class="err" id="err-name">
-              First name is required
+              Name is required
             </span></label
           >
           <br />
           <input type="text" id="name" name="name" />
           <br />
           <!-- Email -->
-          <label for="email">Email:</label>
+          <label for="email">Email:
+            <label for="email">Name:<span class="err" id="err-email">
+                Email is required
+              </span>
+          </label>
           <br />
           <input type="text" id="email" name="email" />
         </fieldset>
@@ -33,7 +38,11 @@
         <fieldset>
           <legend>Order Details</legend>
           <!-- Flavor -->
-          <label for="flavor">Choose your flavor:</label>
+          <label for="flavor">Choose your flavor:
+            <label for="flavor">Name:<span class="err" id="err-flav">
+                Flavor is required
+              </span>
+          </label>
           <br />
           <select id="flavor" name="flavor">
             <option value="none">-- Select Flavor --</option>
@@ -43,7 +52,11 @@
             <option value="mint">Mint</option>
           </select>
           <!-- Cone -->
-          <p>Choose your cone:</p>
+          <p>Choose your cone:
+            <label for="cone">Name:<span class="err" id="err-cone">
+                Cone type is required
+              </span>
+          </p>
           <label for="waffle">
             <input type="radio" id="waffle" value="waffle" name="cone" />Waffle
             Cone
