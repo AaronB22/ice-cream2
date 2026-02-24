@@ -11,12 +11,23 @@ const PORT = 3010;
 
 app.use(express.static('public'));
 
+const orders=[];
+
 
 
 // Define a default "route" ('/')
 app.get("/", (req, res) => {
   res.render('home');
 });
+
+app.post('/submit',(req,res)=>{
+  const order={
+    name: res.body.name,
+    email: res.body.email,
+    flavor: res.body.flavor,
+    cone: res.body.cone
+  }
+})
 
 // Start the server and listen on the specified port
 app.listen(PORT, () => {
