@@ -10,8 +10,8 @@ app.set('view engine', 'ejs')
 const PORT = 3010;
 
 app.use(express.static('public'));
-app.use(express.urlencoded({ extended: true}))
-const orders=[];
+app.use(express.urlencoded({ extended: true }))
+const orders = [];
 
 
 
@@ -21,21 +21,21 @@ app.get("/", (req, res) => {
 });
 
 app.post('/submit-order', (req, res) => {
-  const order={
+  const order = {
     name: req.body.name,
     email: req.body.email,
     cone: req.body.cone,
     flavor: req.body.flavor
   }
- 
+
   res.render('confirmation', { order })
 })
 
-app.get('/admin',(req, res) => {
-  res.render('admin');
+app.get('/admin', (req, res) => {
+  res.render('admin', { orders });
 });
 
-app.get('/confirmation', (req, res) =>{
+app.get('/confirmation', (req, res) => {
   res.render('confirmation');
 })
 
