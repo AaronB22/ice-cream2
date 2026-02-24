@@ -31,6 +31,7 @@ app.post('/submit-order', (req, res) => {
     timestamp: new Date()
   }
 
+  orders.push(order);
   res.render('confirmation', { order })
 })
 
