@@ -22,6 +22,10 @@ app.get('/admin',(req, res) => {
   res.render('admin');
 });
 
+app.get('/confirmation', (req, res) =>{
+  res.render('confirmation');
+})
+
 // Start the server and listen on the specified port
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
