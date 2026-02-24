@@ -13,21 +13,20 @@
     <main>
       <h1>Ice Cream Order Form</h1>
 
-      <form id="ice-cream-form" action="#" method="get">
+      <form id="ice-cream-form" action="/submit-order" method="post">
         <fieldset>
           <legend>Personal Information</legend>
           <!-- Name -->
           <label for="name"
             >Name:<span class="err" id="err-name">
               Name is required
-            </span></label
-          >
+            </span></label>
           <br />
           <input type="text" id="name" name="name" />
           <br />
           <!-- Email -->
           <label for="email">Email:
-            <label for="email">Name:<span class="err" id="err-email">
+            <span class="err" id="err-email">
                 Email is required
               </span>
           </label>
