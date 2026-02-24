@@ -32,7 +32,7 @@
                 <td><%=order.cone%></td>
                 <td><%=order.toppings%></td>
                 <td><%=order.comment%></td>
-                <td><%=order.timestamp%></td>
+                <td><%=order.timestamp.toLocaleTime()%></td>
             </tr>
         <%});%>
     </tbody>
