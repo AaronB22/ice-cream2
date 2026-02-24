@@ -26,7 +26,9 @@ app.post('/submit-order', (req, res) => {
     email: req.body.email,
     cone: req.body.cone,
     flavor: req.body.flavor,
-    toppings: req.body.toppings
+    toppings: req.body.toppings,
+    comment: req.body.comment,
+    timestamp: new Date()
   }
 
   res.render('confirmation', { order })
