@@ -3,25 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css" />
     <title>Order Confirmed!</title>
 </head>
 <body>
-    <h1>Thank you for your order!</h1>
-    <h3>Personal Information</h3>
-    <p>Name:        <%= order.name %></p>
-    <p>Email:       <%= order.email %></p>
-    <h3>Order Details</h3>
-    <p>Flavor:      <%= order.flavor %></p>
-    <p>Cone Type:   <%= order.cone %></p>
-    <p>Toppings: 
-        <%=Array.isArray(order.toppings) ? 
-             order.toppings.join(',') : 
-             "No Toppings" %>
-        
-    </p>
-    <h3>Additional comments</h3>
-    <p><%=  order.comment %></p>
-    <a href="/">Place another order!</a>
+    <div id="confirmation">
+        <h1>Thank you for your order!</h1>
+        <h3>Personal Information</h3>
+        <p><strong>Name:</strong>        <%= order.name %></p>
+        <p><strong>Email:</strong>       <%= order.email %></p>
+        <h3>Order Details</h3>
+        <p><strong>Flavor:</strong>      <%= order.flavor %></p>
+        <p><strong>Cone Type:</strong>   <%= order.cone %></p>
+        <p><strong>Toppings:</strong>
+            <%=Array.isArray(order.toppings) ? 
+                order.toppings.join(',') : 
+                "No Toppings" %>
+            
+        </p>
+        <h3>Additional comments</h3>
+        <p><%=  order.comment %></p>
+        <a href="/">Place another order!</a>
+    </div>
     
 </body>
 </html>
