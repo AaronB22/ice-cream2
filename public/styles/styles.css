@@ -61,3 +61,12 @@ button {
   font-weight: 600;
   display: none;
 }
+
+#confirmation{
+  background-color: white;
+  width: 50%;
+  margin: 1rem auto;
+  padding: 0 1rem 2rem 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
