@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 });
 
 app.post('/submit-order', (req, res) => {
-  const order = {
+  const params = {
     name: req.body.name,
     email: req.body.email,
     cone: req.body.cone,
@@ -31,12 +31,18 @@ app.post('/submit-order', (req, res) => {
     timestamp: new Date()
   }
 
-  orders.push(order);
+
   res.render('confirmation', { order })
 })
 
-app.get('/admin', (req, res) => {
-  res.render('admin', { orders });
+app.get('/admin', async(req, res) => {
+  try{
+    const [orders]= await createPool.query('SELECT * FROM orders ORDER BY timestamp DESC');
+    res.render('admin', { orders });
+  } catch(err){
+    console.error('Database error:', err);
+    res.status(500).send('Error loading orders'+ err.message)
+  }
 });
 
 app.get('/confirmation', (req, res) => {
