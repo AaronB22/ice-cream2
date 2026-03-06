@@ -70,7 +70,7 @@ app.post('/submit-order', async(req, res) => {
 
 app.get('/admin', async(req, res) => {
   try{
-    const [orders]= await createPool.query('SELECT * FROM orders ORDER BY timestamp DESC');
+    const [orders]= await pool.query('SELECT * FROM orders ORDER BY timestamp DESC');
     res.render('admin', { orders });
   } catch(err){
     console.error('Database error:', err);
