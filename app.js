@@ -1,6 +1,6 @@
 // Import the express module
 import express from "express";
-import mysql12 from 'mysql12';
+import mysql2 from 'mysql2';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -15,9 +15,9 @@ const PORT = 3011;
 
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }))
-const orders = [];
 
-const pool = mysql12.createPool({
+
+const pool = mysql2.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
@@ -33,26 +33,39 @@ app.get('/db-test', async (req, res) => {
     console.error(err);
     res.status(500).send('Database error' + err.message);
   }
-
+})
 
 // Define a default "route" ('/')
 app.get("/", (req, res) => {
   res.render('home');
 });
 
-app.post('/submit-order', (req, res) => {
-  const params = {
-    name: req.body.name,
-    email: req.body.email,
-    cone: req.body.cone,
-    flavor: req.body.flavor,
-    toppings: req.body.toppings,
-    comment: req.body.comment,
-    timestamp: new Date()
+app.post('/submit-order', async(req, res) => {
+  try{
+    const order=req.body;
+    console.log('New order submittted:', order);
+    order.toppings= Array.isArray(order.toppings) ?
+    order.toppings.join(",") : "";
+    const params = [
+      order.name,
+      order.email,
+      order.flavor,
+      order.cone,
+      order.toppings
+    ]
+    const sql = `INSERT INTO orders(customer, email,flavor,cone,toppings)
+                  values (?,?,?,?,?);`;
+
+    const result= await pool.execute(sql, params);
+    console.log(result)
+  
+    res.render('confirmation', { order })
+
   }
-
-
-  res.render('confirmation', { order })
+  catch(err){
+    console.error(err)
+    res.status(500).send('Sorry, there was an error processing your order. Please try again')
+  }
 })
 
 app.get('/admin', async(req, res) => {
@@ -72,4 +85,4 @@ app.get('/confirmation', (req, res) => {
 // Start the server and listen on the specified port
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
-});
+})
